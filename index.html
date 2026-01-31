@@ -1,75 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My-Portfolio</title>
+    <title>Kittipoom Suttilert | Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <nav>
-        <div class="logo">Portfolio</div>
+        <div class="logo">Kittipoom Suttilert</div>
         <ul>
-            <li>
-                <a href="#home">หน้าหลัก</a>
-                <a href="#port">ผลงาน</a>
-                <a href="#contact">ติดต่อ</a>
-            </li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Selected Work</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
-    <header id ="home">
-        <h1>
-            Kittipoom Suttilert
-        </h1>
-        <p1>
-            สวัสดีครับ, ผมชื่อนายกิตติภูมิ สุทธิเลิศ ชื่อเล่นว่าภูมิ ปัจจุบันศึกษาปริญญาตรีอยู่ที่มหาวิทยาลัยเกษตรศาสตร์ วิทยาเขตบางเขน ศึกษาอยู่ชั้นปีที่ 1 ผมมีความสนใจในการทำงานด้าน AI เเละ Website รวมถึงการทำ Software ต่างๆให้กับระบบ
-        </p1>
-        <br> <a href="#projects" class="btn">ดูผลงานของผม</a>
+
+    <header id="home">
+        <div class="hero-text">
+            <span class="tag-line">Computer Engineering Student</span>
+            <h1>Building Future <br> with Code.</h1>
+            <p>
+                สวัสดีครับ ผมชื่อ <strong>ภูมิ (Kittipoom Suttilert)</strong> <br>
+                มุ่งมั่นสร้างสรรค์นวัตกรรมผ่าน AI เเละ Software Development<br>
+                เพื่อแก้ปัญหาจริงและสร้าง Impact ให้กับสังคม
+            </p>
+            <a href="#projects" class="btn">View My Projects</a>
+        </div>
+
+        <div class="hero-image">
+            <img src="images/profile.jpg" alt="Kittipoom Profile">
+        </div>
     </header>
+
     <section id="projects">
-        <div class="project-grid">
-
-            <div class="project-card">
-                <img src="images/project1/project1.jpg" alt="รูปโปรเจ็ค">
-                <h3>Mind Buddy</h3>
-                <p>
-                    โปรเจ็ค Mind Buddy เป็นโปรเจ็คที่ทำเพื่อเเข่งขันในรายการ KU Innovation 5 ซึ่งจัดงานร่วมกันระหว่างมหาวิทยาลัยเกษตรศาสตร์กับทางกรุงเทพมหานครซึ่งเป็นงานที่ทำงานร่วมกันระหว่างหลายคณะเเละผมเป็นคนเดียวที่ทำงานทางด้านเทคโนโลยีให้กับทีมเเละได้สร้างผลงานเป็น Line OA เเละได้สร้างฟีเจอร์ข้างในเป็น website เเละ chatbot ที่ตอบผ่านไลน์ 
-                </p>
-                <a href="project-1.html">อ่านเพิ่มเติม</a>
-            </div>
+        <div class="section-header">
+            <h2>Featured Projects</h2>
+            <p style="color: #666;">ผลงานที่ภาคภูมิใจและเทคโนโลยีที่เลือกใช้</p>
         </div>
+        
         <div class="project-grid">
 
             <div class="project-card">
-                <img src="images/project2/project2.jpg" alt="รูปโปรเจ็ค">
-                <h3>Memo Bot</h3>
-                <p>
-                    โปรเจ็ค Memo Bot เป็นโปรเจ็คที่ทำเพื่อเเข่งขันรายการ MIT x Bangkok Bank Robotic Ai Competition ซึ่งได้ผ่านเข้ารอบไปยัง 12 ทีมสุดท้ายงานนี้ทีมของผมได้ทำหุ่นยนต์ที่ดูแลผู้ป่วยทางอัลไซเมอร์เเละได้ผมดูแลในส่วนการทำ AI ในหุ่นยนต์ตัวนี้
-                </p>
-                <a href="project-2.html">อ่านเพิ่มเติม</a>
+                <img src="images/project1/project1.jpg" alt="Mind Buddy">
+                <div class="card-content">
+                    <h3>Mind Buddy</h3>
+                    <p>Line OA และ Web Platform สำหรับดูแลสุขภาพจิตนิสิต พัฒนาเพื่อการแข่งขัน KU Innovation 5 ร่วมกับ กทม.</p>
+                    <a href="project-1.html" class="read-more">View Case Study →</a>
+                </div>
             </div>
-        </div>
-        <div class="project-grid">
 
             <div class="project-card">
-                <img src="images/project3/project3.jpg" alt="รูปโปรเจ็ค">
-                <h3>Video Factory</h3>
-                <p>
-                    โปรเจ็ค Video Factory เป็นโปรเจ็คส่วนตัวที่ทำมาเพื่อใช้งานในการสร้างคลิปสั้นเพื่อโพสลงใน tiktok โดยได้ใช้ AI ในการพากย์เสียงเเละการใช้ Python ในการตัดต่อวิดิโอให้อัตโนมัติ
-                </p>
-                <a href="project-3.html">อ่านเพิ่มเติม</a>
+                <img src="images/project2/project2.jpg" alt="Memo Bot">
+                <div class="card-content">
+                    <h3>Memo Bot</h3>
+                    <p>หุ่นยนต์ดูแลผู้ป่วยอัลไซเมอร์ พร้อมระบบ AI ตรวจจับการล้ม (Fall Detection) และแจ้งเตือนยา</p>
+                    <a href="project-2.html" class="read-more">View Case Study →</a>
+                </div>
             </div>
+
+            <div class="project-card">
+                <img src="images/project3/project3.jpg" alt="Video Factory">
+                <div class="card-content">
+                    <h3>Video Factory</h3>
+                    <p>ระบบสร้างคลิป TikTok อัตโนมัติด้วย Python และ Generative AI (Gemini) ตั้งแต่เขียนบทจนถึงตัดต่อ</p>
+                    <a href="project-3.html" class="read-more">View Case Study →</a>
+                </div>
+            </div>
+
         </div>
     </section>
+
     <footer id="contact">
-        <h2>สนใจร่วมงานด้วยกัน</h2>
-        <p>สามารถติดต่อได้ที่ช่องทางด้านล่างนี้</p>
+        <h2>Let's Connect</h2>
+        <p>เปิดรับโอกาสในการฝึกงานและการทำงานร่วมกันครับ</p>
+        
         <div class="social-links">
-            <p>Email: <a href="mailto:kittipoomsuttilert@gmail.com" target="_blank">kittipoomsuttilert@gmail.com</a></p>
-            <p>GitHub: <a href="https://github.com/zawedut" target="_blank">zawedut</a></p>
-            <p>LineID: <a href="https://line.me/ti/p/gg7IH7Pv-4" target="_blank">zaweddd</a></p>
-            <p>Tel: <a href="tel:084-070-4342" target="_blank">0840704342</a></p>
+            <a href="mailto:kittipoomsuttilert@gmail.com">Email</a>
+            <a href="https://github.com/zawedut" target="_blank">GitHub</a>
+            <a href="https://line.me/ti/p/gg7IH7Pv-4" target="_blank">Line ID</a>
+            <a href="tel:0840704342">Tel: 084-070-4342</a>
         </div>
+        
+        <p style="margin-top: 50px; font-size: 0.8rem; color: #999;">© 2026 Kittipoom Suttilert. All rights reserved.</p>
     </footer>
+
 </body>
 </html>
