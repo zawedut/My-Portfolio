@@ -1,0 +1,221 @@
+/* 1. ล้างค่าเริ่มต้น และตั้งค่ากล่อง */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 2. ตั้งค่าพื้นฐานทั้งหน้าเว็บ */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* ฟอนต์อ่านง่าย */
+    line-height: 1.6; /* ระยะห่างบรรทัด */
+    background-color: #f4f4f4; /* สีพื้นหลังเทาอ่อนๆ สบายตา */
+    color: #333; /* สีตัวอักษรเทาเข้ม (อ่านง่ายกว่าดำสนิท) */
+}
+
+/* 3. ทำให้รูปภาพไม่ล้นจอ (สำคัญมาก!) */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* =========================
+   NAVBAR (ส่วนเมนู)
+   ========================= */
+
+nav {
+    background-color: #333;   /* สีพื้นหลังแถบเมนู (สีดำเทา) */
+    color: white;             /* สีตัวอักษรขาว */
+    display: flex;            /* พระเอกของเรา! จัดให้ลูกๆ เรียงแนวนอน */
+    justify-content: space-between; /* ดันลูกคนโต (Logo) ไปซ้ายสุด คนเล็ก (Menu) ไปขวาสุด */
+    align-items: center;      /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+    padding: 1rem 2rem;       /* เว้นขอบ บนล่าง 1rem, ซ้ายขวา 2rem */
+    position: sticky;         /* (Optional) ทำให้เมนูติดหนึบอยู่ข้างบนเวลาเลื่อนจอ */
+    top: 0;
+    z-index: 1000;            /* ให้ลอยอยู่เหนือเลเยอร์อื่น */
+}
+
+nav .logo {
+    font-size: 1.5rem;        /* ขนาดตัวหนังสือโลโก้ */
+    font-weight: bold;        /* ตัวหนา */
+}
+
+nav ul {
+    display: flex;            /* จัดรายการเมนูให้เรียงแนวนอน */
+    list-style: none;         /* เอาจุด bullet point ออก */
+    gap: 20px;                /* เว้นระยะห่างระหว่างเมนูแต่ละตัว */
+}
+
+nav a {
+    color: white;             /* สีลิงก์เป็นสีขาว */
+    text-decoration: none;    /* เอาขีดเส้นใต้ลิงก์ออก */
+    font-weight: 500;
+    transition: color 0.3s;   /* เตรียมทำเอฟเฟกต์เปลี่ยนสีนุ่มๆ */
+}
+
+/* เอฟเฟกต์ตอนเอาเมาส์ชี้ที่เมนู */
+nav a:hover {
+    color: #00bcd4;           /* เปลี่ยนเป็นสีฟ้าเมื่อชี้ */
+}
+
+/* =========================
+   HERO SECTION (ส่วนแนะนำตัว)
+   ========================= */
+
+header#home {
+    height: 80vh;             /* กำหนดความสูง 80% ของหน้าจอ (เปิดมาเห็นเต็มตา) */
+    display: flex;            /* ใช้ Flexbox อีกแล้ว */
+    flex-direction: column;   /* แต่คราวนี้สั่งให้เรียงแนวตั้ง (บนลงล่าง) */
+    justify-content: center;  /* จัดกึ่งกลางแนวตั้ง */
+    align-items: center;      /* จัดกึ่งกลางแนวนอน */
+    text-align: center;       /* จัดตัวหนังสือให้อยู่ตรงกลาง */
+    background: linear-gradient(135deg, #ffffff 100%); /* ไล่สีพื้นหลังฟ้าอ่อนๆ ดูแพง */
+}
+
+header h1 {
+    font-size: 3.5rem;        /* ชื่อตัวใหญ่สะใจ */
+    margin-bottom: 10px;      /* เว้นระยะห่างด้านล่างนิดหน่อย */
+    color: #333;
+}
+
+header p {
+    font-size: 1.2rem;        /* ขนาดตัวหนังสือคำโปรย */
+    color: #555;
+    margin-bottom: 30px;      /* เว้นระยะก่อนถึงปุ่ม */
+}
+
+/* ตกแต่งปุ่ม (Button) */
+.btn {
+    display: inline-block;
+    background-color: #007bff; /* สีปุ่มน้ำเงิน (เปลี่ยนสีได้ตามชอบ) */
+    color: white;
+    padding: 12px 30px;       /* ความอ้วนของปุ่ม (บนล่าง 12, ซ้ายขวา 30) */
+    border-radius: 50px;      /* ทำขอบมนๆ เหมือนแคปซูล */
+    text-decoration: none;    /* เอาขีดเส้นใต้ออก */
+    font-weight: bold;
+    transition: transform 0.2s, background-color 0.2s; /* เอฟเฟกต์นุ่มๆ */
+}
+
+/* เอฟเฟกต์ตอนชี้ที่ปุ่ม */
+.btn:hover {
+    background-color: #0056b3; /* เปลี่ยนเป็นสีน้ำเงินเข้ม */
+    transform: scale(1.05);    /* ขยายขนาดขึ้นนิดนึง (เด้งดึ๋ง) */
+}
+
+/* =========================
+   PROJECTS SECTION (ส่วนผลงาน)
+   ========================= */
+
+#projects {
+    padding: 80px 20px;       /* เว้นขอบบนล่าง 80px ให้ดูไม่อึดอัด */
+    max-width: 1100px;        /* จำกัดความกว้างเนื้อหาไม่ให้ยาวเกินไปจนอ่านยาก */
+    margin: 0 auto;           /* จัดกึ่งกลางหน้าจออัตโนมัติ */
+}
+
+#projects h2 {
+    text-align: center;       /* จัดหัวข้อ "ผลงานที่ผ่านมา" ให้อยู่กลาง */
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+}
+
+/* --- พระเอกของเรา: The Grid --- */
+.project-grid {
+    display: grid;
+    /* บรรทัดข้างล่างนี้คือเวทมนตร์! มันจะจัดคอลัมน์ให้อัตโนมัติ 
+       ถ้าจอเล็กก็เหลือ 1 แถว ถ้าจอใหญ่ก็ขยายเป็น 2-3 แถวเอง */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;                /* ช่องว่างระหว่างการ์ด */
+}
+
+/* --- ตัวการ์ด (Card) --- */
+.project-card {
+    background: white;        /* พื้นหลังการ์ดสีขาว */
+    border-radius: 15px;      /* มุมมน */
+    overflow: hidden;         /* ตัดส่วนที่ล้นออก (เช่นมุมภาพ) */
+    transition: transform 0.3s ease; /* เตรียมเอฟเฟกต์ขยับ */
+}
+
+/* เอฟเฟกต์ตอนชี้การ์ด */
+.project-card:hover {
+    transform: translateY(-10px); /* ลอยขึ้นมา 10px */
+}
+
+/* --- จัดรูปภาพในการ์ด --- */
+.project-card img {
+    width: 100%;              /* กว้างเต็มการ์ด */
+    height: 200px;            /* สูง 200px เท่ากันทุกรูป */
+    object-fit: cover;        /* ตัดส่วนเกินภาพออก ไม่ให้ภาพเบี้ยว */
+}
+
+/* --- จัดเนื้อหาในการ์ด --- */
+.project-card h3 {
+    padding: 20px 20px 10px;  /* เว้นระยะขอบรอบๆ ชื่อเรื่อง */
+    font-size: 1.5rem;
+}
+
+.project-card p {
+    padding: 0 20px 20px;     /* เว้นระยะขอบรอบๆ เนื้อหา */
+    color: #666;
+}
+
+.project-card a {
+    display: block;           /* ทำให้ลิงก์เต็มบรรทัด */
+    padding: 15px;
+    background: #f8f9fa;      /* พื้นหลังสีเทาอ่อนตรงปุ่ม */
+    text-align: center;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    border-top: 1px solid #eee; /* เส้นขีดกั้นด้านบนปุ่ม */
+}
+
+.project-card a:hover {
+    background: #007bff;      /* พอชี้แล้วเปลี่ยนพื้นเป็นสีฟ้า */
+    color: white;             /* ตัวหนังสือขาว */
+}
+
+/* =========================
+   FOOTER (ส่วนท้าย)
+   ========================= */
+
+footer {
+    background-color: #333;   /* สีดำเทาเหมือน Navbar ข้างบน */
+    color: white;
+    text-align: center;       /* จัดทุกอย่างกึ่งกลาง */
+    padding: 50px 20px;       /* พื้นที่กว้างๆ หน่อยให้ดูไม่อึดอัด */
+    margin-top: 50px;         /* เว้นระยะห่างจากส่วนผลงานข้างบน */
+}
+
+footer h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+footer p {
+    margin-bottom: 10px;
+    color: #ccc;              /* สีเทาอ่อนๆ */
+}
+
+/* กล่องลิงก์ Social */
+.social-links {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;  /* จัดให้อยู่กลางแนวนอน */
+    gap: 20px;                /* ห่างกัน 20px */
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid white;  /* กรอบสีขาว */
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.social-links a:hover {
+    background-color: white;  /* ชี้แล้วพื้นขาว */
+    color: #333;              /* ตัวหนังสือดำ */
+}
