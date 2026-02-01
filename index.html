@@ -5,49 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kittipoom Suttilert | Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
     <nav>
         <div class="logo">Kittipoom Suttilert</div>
-        <ul class="nav-menu">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+        
+        <div style="display: flex; align-items: center; gap: 15px;">
+            
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
     </nav>
 
     <header id="home">
-        <div class="hero-text">
-            <span class="tag-line">Computer Engineering Student</span>
-            <h1>Building Future <br> with Code.</h1>
+        <div class="hero-text" data-aos="fade-right"> <span class="tag-line">Computer Engineering Student</span>
+            <h1>
+                I Create <br>
+                <span class="typing-effect" style="color: var(--accent-color);"></span>
+            </h1>
             <p>
-                สวัสดีครับ ผมชื่อ <strong>ภูมิ (Kittipoom Suttilert)</strong> <br>
-                มุ่งมั่นสร้างสรรค์นวัตกรรมผ่าน AI เเละ Software Development<br>
+                สวัสดีครับ ผมชื่อ <strong>ภูมิ (Kittipoom)</strong> <br>
+                มุ่งมั่นสร้างสรรค์นวัตกรรมผ่าน AI และ Software Development<br>
                 เพื่อแก้ปัญหาจริงและสร้าง Impact ให้กับสังคม
             </p>
             <a href="#projects" class="btn">View My Projects</a>
         </div>
 
-        <div class="hero-image">
-            <img src="images/profile.jpg" alt="Kittipoom Profile">
+        <div class="hero-image" data-aos="zoom-in"> <img src="images/profile.jpg" alt="Kittipoom Profile">
         </div>
     </header>
 
     <section id="projects">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
             <h2>Featured Projects</h2>
-            <p style="color: #666;">ผลงานที่ภาคภูมิใจและเทคโนโลยีที่เลือกใช้</p>
+            <p style="color: var(--text-secondary);">ผลงานที่ภาคภูมิใจและเทคโนโลยีที่เลือกใช้</p>
         </div>
         
         <div class="project-grid">
 
-            <div class="project-card">
+            <div class="project-card" data-aos="fade-up" data-aos-delay="100">
                 <img src="images/project1/project1.jpg" alt="Mind Buddy">
                 <div class="card-content">
                     <h3>Mind Buddy</h3>
@@ -56,7 +65,7 @@
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-aos="fade-up" data-aos-delay="200">
                 <img src="images/project2/project2.jpg" alt="Memo Bot">
                 <div class="card-content">
                     <h3>Memo Bot</h3>
@@ -65,7 +74,7 @@
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-aos="fade-up" data-aos-delay="300">
                 <img src="images/project3/project3.jpg" alt="Video Factory">
                 <div class="card-content">
                     <h3>Video Factory</h3>
@@ -78,18 +87,25 @@
     </section>
 
     <footer id="contact">
-        <h2>Let's Connect</h2>
-        <p>เปิดรับโอกาสในการฝึกงานและการทำงานร่วมกันครับ</p>
-        
-        <div class="social-links">
-            <a href="mailto:kittipoomsuttilert@gmail.com">Email</a>
-            <a href="https://github.com/zawedut" target="_blank">GitHub</a>
-            <a href="https://line.me/ti/p/gg7IH7Pv-4" target="_blank">Line ID</a>
-            <a href="tel:0840704342">Tel: 084-070-4342</a>
+        <div data-aos="fade-in">
+            <h2>Let's Connect</h2>
+            <p>เปิดรับโอกาสในการฝึกงานและการทำงานร่วมกันครับ</p>
+            
+            <div class="social-links">
+                <a href="mailto:kittipoomsuttilert@gmail.com">Email</a>
+                <a href="https://github.com/zawedut" target="_blank">GitHub</a>
+                <a href="https://line.me/ti/p/gg7IH7Pv-4" target="_blank">Line ID</a>
+                <a href="tel:0840704342">Tel: 084-070-4342</a>
+            </div>
+            
+            <p style="margin-top: 50px; font-size: 0.8rem; opacity: 0.5;">© 2026 Kittipoom Suttilert. All rights reserved.</p>
         </div>
-        
-        <p style="margin-top: 50px; font-size: 0.8rem; color: #999;">© 2026 Kittipoom Suttilert. All rights reserved.</p>
     </footer>
+
+    <a href="#" id="back-to-top" title="Go to top">↑</a>
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

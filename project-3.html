@@ -5,20 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Factory - Project Detail</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
     <nav>
         <div class="logo">MyProjects</div>
-        <a href="index.html" class="back-link">← กลับหน้าหลัก</a>
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+        </div>
     </nav>
 
-    <div class="project-detail-container">
+    <div class="project-detail-container" data-aos="fade-up">
         
         <div class="slider-wrapper">
             <div class="slider-container">
                 <img src="images/project3/project3.jpg" alt="Video Factory View 1" class="slide">
-                </div>
+            </div>
             <p class="slider-hint">← ปัดซ้ายขวาเพื่อดูรูปเพิ่มเติม →</p>
         </div>
 
@@ -41,21 +45,11 @@
             
             <h3>กระบวนการทำงาน (Workflow)</h3>
             <ul>
-                <li style="margin-bottom: 10px; color: #666;">
-                    <strong>1. Download Video:</strong> ใช้ <code>yt-dlp</code> ดาวน์โหลดวิดีโอต้นฉบับมาเก็บไว้
-                </li>
-                <li style="margin-bottom: 10px; color: #666;">
-                    <strong>2. Content Generation:</strong> ใช้ <strong>Gemini AI</strong> ดูเนื้อหาในคลิปและ "เขียนบทพากย์" ขึ้นมาใหม่ให้น่าสนใจ
-                </li>
-                <li style="margin-bottom: 10px; color: #666;">
-                    <strong>3. Text-to-Speech:</strong> ใช้ <strong>Edge TTS</strong> แปลงบทเป็นเสียงพากย์ที่ลื่นไหล
-                </li>
-                <li style="margin-bottom: 10px; color: #666;">
-                    <strong>4. Auto Editing:</strong> ใช้ <strong>MoviePy</strong> นำคลิป เสียงพากย์ และรูปอวตารมาตัดต่อรวมกันโดยอัตโนมัติ
-                </li>
-                <li style="margin-bottom: 10px; color: #666;">
-                    <strong>5. Cloud Upload:</strong> อัปโหลดผลงานที่เสร็จสมบูรณ์ขึ้น <strong>Google Drive</strong> ผ่าน API พร้อมใช้งานทันที
-                </li>
+                <li><strong>1. Download Video:</strong> ใช้ <code>yt-dlp</code> ดาวน์โหลดวิดีโอต้นฉบับมาเก็บไว้</li>
+                <li><strong>2. Content Generation:</strong> ใช้ <strong>Gemini AI</strong> ดูเนื้อหาในคลิปและ "เขียนบทพากย์" ขึ้นมาใหม่ให้น่าสนใจ</li>
+                <li><strong>3. Text-to-Speech:</strong> ใช้ <strong>Edge TTS</strong> แปลงบทเป็นเสียงพากย์ที่ลื่นไหล</li>
+                <li><strong>4. Auto Editing:</strong> ใช้ <strong>MoviePy</strong> นำคลิป เสียงพากย์ และรูปอวตารมาตัดต่อรวมกันโดยอัตโนมัติ</li>
+                <li><strong>5. Cloud Upload:</strong> อัปโหลดผลงานที่เสร็จสมบูรณ์ขึ้น <strong>Google Drive</strong> ผ่าน API พร้อมใช้งานทันที</li>
             </ul>
 
             <h3>บทบาทและความรับผิดชอบ (Role)</h3>
@@ -73,6 +67,11 @@
     <footer>
         <p>© 2026 Kittipoom Suttilert</p>
     </footer>
+
+    <a href="#" id="back-to-top" title="Go to top">↑</a>
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

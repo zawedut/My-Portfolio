@@ -5,23 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mind Buddy - Project Detail</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
     <nav>
         <div class="logo">MyProjects</div>
-        <a href="index.html" class="back-link">← กลับหน้าหลัก</a>
+        
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+        </div>
     </nav>
 
-    <div class="project-detail-container">
+    <div class="project-detail-container" data-aos="fade-up">
         
         <div class="slider-wrapper">
             <div class="slider-container">
                 <img src="images/project1/project1.jpg" alt="Mind Buddy View 1" class="slide">
-                
-                </div>
+            </div>
             <p class="slider-hint">← ปัดซ้ายขวาเพื่อดูรูปเพิ่มเติม →</p>
         </div>
+
         <div class="project-header">
             <h1>Mind Buddy</h1>
             <div>
@@ -40,10 +45,10 @@
             
             <h3>ฟีเจอร์หลัก (Key Features)</h3>
             <ul>
-                <li style="margin-bottom: 10px; color: #666;"><strong>1. ปฏิทินอารมณ์ (Mood Calendar):</strong> บันทึกอารมณ์ในแต่ละวัน หากพบแนวโน้มอารมณ์เชิงลบ AI Chatbot จะทักไปพูดคุยและให้กำลังใจทันที</li>
-                <li style="margin-bottom: 10px; color: #666;"><strong>2. Buddy Review:</strong> เว็บไซต์รีวิวคณะและมหาวิทยาลัยต่างๆ โดยนิสิตปัจจุบัน เพื่อเป็นข้อมูลให้น้องๆ มัธยม</li>
-                <li style="margin-bottom: 10px; color: #666;"><strong>3. Learn With Buddy & Mind Care:</strong> ศูนย์รวมแหล่งเรียนรู้ ค่ายกิจกรรม และรายชื่อคลินิก/โรงพยาบาลด้านสุขภาพจิต</li>
-                <li style="margin-bottom: 10px; color: #666;"><strong>4. AI Chatbot:</strong> ใช้ Typhoon API (LLM ภาษาไทย) ในการโต้ตอบและให้ข้อมูลเกี่ยวกับบริการต่างๆ ของ Mind Buddy ได้อย่างเป็นธรรมชาติ</li>
+                <li><strong>1. ปฏิทินอารมณ์ (Mood Calendar):</strong> บันทึกอารมณ์ในแต่ละวัน หากพบแนวโน้มอารมณ์เชิงลบ AI Chatbot จะทักไปพูดคุยและให้กำลังใจทันที</li>
+                <li><strong>2. Buddy Review:</strong> เว็บไซต์รีวิวคณะและมหาวิทยาลัยต่างๆ โดยนิสิตปัจจุบัน เพื่อเป็นข้อมูลให้น้องๆ มัธยม</li>
+                <li><strong>3. Learn With Buddy & Mind Care:</strong> ศูนย์รวมแหล่งเรียนรู้ ค่ายกิจกรรม และรายชื่อคลินิก/โรงพยาบาลด้านสุขภาพจิต</li>
+                <li><strong>4. AI Chatbot:</strong> ใช้ Typhoon API (LLM ภาษาไทย) ในการโต้ตอบและให้ข้อมูลเกี่ยวกับบริการต่างๆ ของ Mind Buddy ได้อย่างเป็นธรรมชาติ</li>
             </ul>
 
             <h3>บทบาทและความรับผิดชอบ (Role & Responsibility)</h3>
@@ -64,6 +69,11 @@
     <footer>
         <p>© 2026 Kittipoom Suttilert</p>
     </footer>
+
+    <a href="#" id="back-to-top" title="Go to top">↑</a>
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

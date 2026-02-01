@@ -1,82 +1,115 @@
 /* --- 1. FONTS & RESET --- */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* --- กำหนดตัวแปรสี (Theme Variables) --- */
+:root {
+    /* สีโหมดสว่าง (Light Mode - ค่าเริ่มต้น) */
+    --bg-color: #ffffff;
+    --bg-secondary: #fafafa;
+    --text-primary: #111111;
+    --text-secondary: #555555;
+    --card-bg: #ffffff;
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --border-color: #e5e5e5;
+    --shadow-color: rgba(0,0,0,0.08);
+    --accent-color: #000000; /* สีตัวพิมพ์ดีดในโหมดสว่าง */
+    --btn-text: #ffffff;
+    --badge-bg: #f4f4f4;
+    --popover-bg: #ffffff;
 }
+
+/* สีโหมดมืด (Dark Mode) */
+body.dark-mode {
+    --bg-color: #0d1117; /* พื้นหลังสีดำเทา (GitHub Style) */
+    --bg-secondary: #161b22;
+    --text-primary: #f0f6fc;
+    --text-secondary: #8b949e;
+    --card-bg: #161b22;
+    --nav-bg: rgba(13, 17, 23, 0.9);
+    --border-color: #30363d;
+    --shadow-color: rgba(0,0,0,0.5);
+    --accent-color: #58a6ff; /* สีตัวพิมพ์ดีดในโหมดมืด (ฟ้าสว่าง) */
+    --btn-text: #0d1117;
+    --badge-bg: #21262d;
+    --popover-bg: #1f242c;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: 'Inter', 'Prompt', sans-serif;
-    background-color: #ffffff;
-    color: #111;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
     line-height: 1.7;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden; /* ป้องกันหน้าจอเลื่อนซ้ายขวาเกิน */
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
+img { max-width: 100%; height: auto; display: block; }
 a { text-decoration: none; color: inherit; }
 
-/* --- 2. NAVBAR (ใช้ได้ทุกหน้า) --- */
+/* --- 2. NAVBAR --- */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.2rem 8%;
-    background: rgba(255, 255, 255, 0.9);
+    background: var(--nav-bg);
     backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid #f2f2f2;
+    border-bottom: 1px solid var(--border-color);
 }
 
 nav .logo {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #000;
+    color: var(--text-primary);
     letter-spacing: -0.5px;
 }
 
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-}
+/* Group ขวา (Menu + Theme Toggle + Hamburger) */
+nav .nav-right { display: flex; align-items: center; gap: 15px; }
+
+nav ul { display: flex; list-style: none; gap: 30px; }
 
 nav a {
-    color: #666;
+    color: var(--text-secondary);
     font-size: 0.9rem;
     font-weight: 500;
     transition: color 0.2s;
 }
+nav a:hover { color: var(--text-primary); }
 
-nav a:hover { color: #000; }
-
-/* ปุ่มย้อนกลับ (สำหรับหน้า Project Detail) */
-.back-link {
-    font-size: 0.9rem;
-    color: #666;
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
+/* ปุ่มเปลี่ยนธีม */
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 5px;
+    border-radius: 50%;
+    transition: transform 0.3s;
+    color: var(--text-primary);
 }
-.back-link:hover { color: #000; }
+#theme-toggle:hover { transform: rotate(20deg) scale(1.1); }
 
-/* --- 3. HERO SECTION (หน้าหลัก) --- */
+/* ปุ่มย้อนกลับ (หน้า Detail) */
+.back-link {
+    display: flex; align-items: center; gap: 5px;
+    font-size: 0.9rem; font-weight: 600; color: var(--text-secondary);
+}
+.back-link:hover { color: var(--text-primary); }
+
+/* --- 3. HERO SECTION --- */
 header#home {
     min-height: 85vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 8%;
-    background: #fff;
+    background: var(--bg-color);
 }
 
 .hero-text { max-width: 550px; }
@@ -85,11 +118,11 @@ header#home {
     display: inline-block;
     font-size: 0.75rem;
     font-weight: 700;
-    color: #555;
+    color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 20px;
-    background: #f4f4f4;
+    background: var(--badge-bg);
     padding: 6px 12px;
     border-radius: 4px;
 }
@@ -99,13 +132,19 @@ header h1 {
     font-weight: 700;
     line-height: 1.15;
     margin-bottom: 20px;
-    color: #000;
+    color: var(--text-primary);
     letter-spacing: -1px;
+}
+
+/* สีตัวพิมพ์ดีด (แก้ให้ชัดทั้ง 2 โหมด) */
+.typing-effect {
+    color: var(--accent-color);
+    font-weight: 700;
 }
 
 header p {
     font-size: 1.1rem;
-    color: #666;
+    color: var(--text-secondary);
     margin-bottom: 40px;
     font-weight: 300;
 }
@@ -113,17 +152,16 @@ header p {
 .btn {
     display: inline-block;
     padding: 14px 30px;
-    background-color: #000;
-    color: #fff;
+    background-color: var(--text-primary);
+    color: var(--btn-text);
     border-radius: 8px;
     font-weight: 500;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
 }
-
 .btn:hover {
-    background-color: #333;
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    opacity: 0.9;
 }
 
 .hero-image img {
@@ -131,19 +169,20 @@ header p {
     height: 450px;
     object-fit: cover;
     border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    box-shadow: 0 20px 60px var(--shadow-color);
 }
 
 /* --- 4. PROJECTS SECTION (หน้าหลัก) --- */
 #projects {
     padding: 100px 8%;
-    background: #fafafa;
+    background: var(--bg-secondary);
 }
 
 .section-header h2 {
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: 10px;
+    color: var(--text-primary);
 }
 
 .project-grid {
@@ -154,277 +193,189 @@ header p {
 }
 
 .project-card {
-    background: #fff;
+    background: var(--card-bg);
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    box-shadow: 0 4px 20px var(--shadow-color);
     transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid var(--border-color);
 }
-
 .project-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    box-shadow: 0 20px 40px var(--shadow-color);
 }
 
-.project-card img {
-    width: 100%;
-    height: 240px;
-    object-fit: cover;
-}
+.project-card img { width: 100%; height: 240px; object-fit: cover; }
 
 .card-content { padding: 30px; }
 
 .project-card h3 {
     font-size: 1.3rem;
     margin-bottom: 10px;
-    color: #000;
+    color: var(--text-primary);
 }
 
 .project-card p {
-    color: #666;
+    color: var(--text-secondary);
     font-size: 0.95rem;
     margin-bottom: 25px;
 }
 
 .read-more {
-    font-size: 0.9rem;
-    font-weight: 600;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 2px;
-    transition: border-color 0.3s;
+    font-size: 0.9rem; font-weight: 600;
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 2px; transition: border-color 0.3s, color 0.3s;
 }
-.read-more:hover { border-color: #000; }
+.read-more:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
 
 /* --- 5. FOOTER --- */
 footer {
     padding: 80px 8%;
-    background: #fff;
-    border-top: 1px solid #f2f2f2;
+    background: var(--bg-color);
+    border-top: 1px solid var(--border-color);
 }
-footer h2 { margin-bottom: 20px; }
+footer h2 { margin-bottom: 20px; color: var(--text-primary); }
+footer p { color: var(--text-secondary); }
+
 .social-links { display: flex; gap: 25px; margin-top: 30px; }
-.social-links a { color: #666; font-weight: 500; }
-.social-links a:hover { color: #000; text-decoration: underline; }
+.social-links a { color: var(--text-secondary); font-weight: 500; }
+.social-links a:hover { color: var(--text-primary); text-decoration: underline; }
+
+/* --- 6. EXTRA FEATURES (Back to Top / Hamburger) --- */
+#back-to-top {
+    position: fixed; bottom: 30px; right: 30px;
+    background: var(--text-primary); color: var(--btn-text);
+    width: 50px; height: 50px; border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 1.5rem; box-shadow: 0 5px 15px var(--shadow-color);
+    opacity: 0; visibility: hidden; transition: 0.3s; z-index: 999;
+}
+#back-to-top.show { opacity: 1; visibility: visible; bottom: 30px; }
+
+.hamburger { display: none; cursor: pointer; }
+.bar {
+    display: block; width: 25px; height: 3px; margin: 5px auto;
+    transition: 0.3s; background-color: var(--text-primary); border-radius: 3px;
+}
 
 /* =========================================
-   [NEW] ส่วนสำหรับหน้า PROJECT DETAIL PAGES
-   (หน้ารายละเอียด: Mind Buddy, Memo Bot ฯลฯ)
+   [NEW] ส่วนหน้า PROJECT DETAIL (ที่เคยหายไป)
    ========================================= */
 
-/* กล่องเนื้อหาหลัก */
+/* กล่องเนื้อหาหลัก (รองรับ Dark Mode) */
 .project-detail-container {
     max-width: 900px;
     margin: 60px auto;
     padding: 50px;
-    background: #fff;
+    background: var(--card-bg); /* ใช้ตัวแปรสีแทนสีขาว */
     border-radius: 24px;
-    /* เงาฟุ้งๆ ให้ดูลอยๆ */
-    box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+    box-shadow: 0 20px 60px var(--shadow-color);
+    border: 1px solid var(--border-color);
 }
 
-/* หัวข้อโปรเจกต์ */
+/* หัวข้อ */
 .project-header h1 {
-    font-size: 2.8rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: #000;
+    font-size: 2.8rem; font-weight: 700;
+    margin-bottom: 20px; color: var(--text-primary);
 }
 
-/* ป้าย Tech Stack (แก้ไขให้เข้ากับธีม Clean) */
+/* ป้าย Tech Stack */
 .tech-badge {
     display: inline-block;
-    background: #f4f4f4;
-    color: #444;
+    background: var(--badge-bg); /* ใช้ตัวแปร */
+    color: var(--text-secondary);
     padding: 6px 14px;
-    border-radius: 6px; /* สี่เหลี่ยมมนๆ */
-    font-size: 0.85rem;
-    font-weight: 500;
-    margin-right: 8px;
-    margin-bottom: 10px;
+    border-radius: 6px;
+    font-size: 0.85rem; font-weight: 500;
+    margin-right: 8px; margin-bottom: 10px;
 }
 
-/* Image Slider (สไลเดอร์รูปภาพ) */
-.slider-wrapper {
-    position: relative;
-    margin-bottom: 40px;
-}
-
-.slider-container {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 20px;
-    padding-bottom: 20px;
-    scrollbar-width: none; /* Firefox ซ่อน Scrollbar */
-}
-.slider-container::-webkit-scrollbar { display: none; /* Chrome ซ่อน Scrollbar */ }
-
-.slide {
-    flex: 0 0 100%;
-    height: 450px; /* ความสูงรูป */
-    object-fit: cover;
-    border-radius: 16px;
-    scroll-snap-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-
-.slider-hint {
-    text-align: center;
-    font-size: 0.8rem;
-    color: #999;
-    margin-top: -10px;
-}
-
-/* เนื้อหาบทความ */
+/* เนื้อหา */
 .project-content h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-top: 40px;
-    margin-bottom: 15px;
-    color: #111;
+    font-size: 1.5rem; font-weight: 600;
+    margin-top: 40px; margin-bottom: 15px;
+    color: var(--text-primary);
 }
-
 .project-content p, .project-content li {
-    color: #555;
-    margin-bottom: 15px;
-    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 15px; line-height: 1.8;
 }
 
 /* ลิงก์ท้ายบทความ */
 .project-links {
-    margin-top: 40px;
-    padding-top: 30px;
-    border-top: 1px solid #f2f2f2;
+    margin-top: 40px; padding-top: 30px;
+    border-top: 1px solid var(--border-color);
 }
-
 .project-links a {
     display: inline-block;
-    color: #000;
-    font-weight: 600;
-    margin-right: 25px;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 2px;
-    transition: all 0.2s;
+    color: var(--text-primary); font-weight: 600;
+    margin-right: 25px; margin-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 2px; transition: all 0.2s;
 }
 .project-links a:hover {
-    border-bottom-color: #000;
-    transform: translateY(-2px);
+    border-bottom-color: var(--accent-color);
+    color: var(--accent-color);
 }
 
-/* --- RESPONSIVE MOBILE --- */
+/* Image Slider */
+.slider-wrapper { position: relative; margin-bottom: 40px; }
+.slider-container {
+    display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+    gap: 20px; padding-bottom: 20px; scrollbar-width: none;
+}
+.slider-container::-webkit-scrollbar { display: none; }
+.slide {
+    flex: 0 0 100%; height: 450px; object-fit: cover;
+    border-radius: 16px; scroll-snap-align: center;
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+.slider-hint {
+    text-align: center; font-size: 0.8rem;
+    color: var(--text-secondary); margin-top: -10px;
+}
+
+/* --- MOBILE RESPONSIVE (รวมทุกหน้า) --- */
 @media (max-width: 768px) {
-    header#home {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding-top: 40px;
-        gap: 40px;
-    }
+    .hamburger { display: block; z-index: 1001; }
     
-    .hero-image img {
-        width: 100%;
-        max-width: 320px;
-        height: 380px;
-        margin: 0 auto;
-    }
-
-    header h1 { font-size: 2.5rem; }
-    
-    .project-detail-container {
-        padding: 25px;
-        margin: 20px;
-    }
-    
-    .slide { height: 250px; }
-}
-
-/* =========================
-   HAMBURGER MENU (MOBILE)
-   ========================= */
-
-/* ซ่อนปุ่ม 3 ขีดไว้ก่อน (ในจอคอมไม่ใช้) */
-.hamburger {
-    display: none;
-    cursor: pointer;
-}
-
-.bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    transition: all 0.3s ease-in-out;
-    background-color: #111; /* สีขีดดำ */
-    border-radius: 3px;
-}
-
-/* --- เริ่มปรับแต่งเฉพาะมือถือ (จอเล็กกว่า 768px) --- */
-/* =========================
-   MOBILE MENU (POPOVER STYLE - กล่องลอยมุมขวา)
-   ========================= */
-/* =========================
-   MOBILE MENU (POPOVER STYLE - ฉบับสมดุล)
-   ========================= */
-@media (max-width: 768px) {
-    /* 1. ปุ่ม 3 ขีด */
-    .hamburger {
-        display: block;
-        z-index: 1001;
-    }
-
-    /* 2. กล่องเมนู (ปรับให้พอดีตัวหนังสือ) */
+    /* เมนูแบบ Popover */
     .nav-menu {
-        position: fixed;
-        top: 70px;
-        right: 20px; /* เว้นขอบขวานิดนึง */
-        
-        /* --- จุดที่แก้: ให้ขนาดพอดีคำ --- */
-        width: auto;          /* กว้างตามเนื้อหา */
-        min-width: 150px;     /* แต่ไม่ให้เล็กเกินไป (กันมันผอมแห้ง) */
-        max-width: 250px;     /* และไม่ให้ใหญ่เกินไป */
-        
-        background-color: #ffffff;
+        position: fixed; top: 70px; right: 20px;
+        width: auto; min-width: 150px; max-width: 250px;
+        background-color: var(--popover-bg);
+        border: 1px solid var(--border-color);
         border-radius: 12px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.15); /* เงาชัดขึ้นนิดนึงให้ตัดกับพื้นหลัง */
-        
-        display: flex;
-        flex-direction: column;
-        padding: 10px;        /* ลดขอบรอบๆ ให้กระชับ */
-        gap: 5px;             /* ลดช่องไฟระหว่างบรรทัด */
-        text-align: center;   /* จัดกลาง ดูสมดุลสุด */
-        
-        /* ซ่อนไว้ก่อน */
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px);
-        transition: all 0.25s ease-out;
+        box-shadow: 0 5px 20px var(--shadow-color);
+        display: flex; flex-direction: column;
+        padding: 10px; gap: 5px; text-align: center;
+        opacity: 0; visibility: hidden; transform: translateY(-10px);
+        transition: 0.25s ease-out;
     }
+    .nav-menu.active { opacity: 1; visibility: visible; transform: translateY(0); }
 
-    /* 3. เมื่อกดเปิด */
-    .nav-menu.active {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
-
-    /* 4. ปรับตัวหนังสือให้สมส่วนกับกล่อง */
     .nav-link {
-        display: block;
-        padding: 10px 15px;   /* เพิ่มพื้นที่กดให้เต็มกล่อง */
-        color: #333;
-        font-size: 0.95rem;   /* ขนาดกำลังดี */
-        font-weight: 500;
-        border-radius: 8px;
-        transition: background 0.2s;
+        display: block; padding: 10px 15px;
+        color: var(--text-primary);
+        font-size: 0.95rem; border-radius: 8px;
     }
+    .nav-link:hover { background-color: var(--badge-bg); }
 
-    .nav-link:hover {
-        background-color: #f7f7f7; /* สีเทาจางๆ ตอนกด */
-        color: #000;
-    }
-
-    /* 5. อนิเมชั่นปุ่ม X */
+    /* Animation ปุ่ม X */
     .hamburger.active .bar:nth-child(2) { opacity: 0; }
     .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* จัดหน้า Hero ในมือถือ */
+    header#home { flex-direction: column-reverse; text-align: center; padding-top: 40px; gap: 40px; }
+    .hero-image img { width: 100%; max-width: 320px; height: 380px; margin: 0 auto; }
+    
+    /* จัดหน้า Project Detail ในมือถือ */
+    .project-detail-container { padding: 25px; margin: 20px; }
+    .slide { height: 250px; }
+    .project-header h1 { font-size: 2rem; }
 }
