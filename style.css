@@ -359,40 +359,72 @@ footer h2 { margin-bottom: 20px; }
 }
 
 /* --- เริ่มปรับแต่งเฉพาะมือถือ (จอเล็กกว่า 768px) --- */
+/* =========================
+   MOBILE MENU (POPOVER STYLE - กล่องลอยมุมขวา)
+   ========================= */
+/* =========================
+   MOBILE MENU (POPOVER STYLE - ฉบับสมดุล)
+   ========================= */
 @media (max-width: 768px) {
-    /* โชว์ปุ่ม 3 ขีด */
+    /* 1. ปุ่ม 3 ขีด */
     .hamburger {
         display: block;
-        z-index: 1001; /* อยู่บนสุด */
+        z-index: 1001;
     }
 
-    /* ซ่อนปุ่ม 3 ขีดเดิม ถ้ามีการคลิก (เปลี่ยนเป็นกากบาท X) */
+    /* 2. กล่องเมนู (ปรับให้พอดีตัวหนังสือ) */
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        right: 20px; /* เว้นขอบขวานิดนึง */
+        
+        /* --- จุดที่แก้: ให้ขนาดพอดีคำ --- */
+        width: auto;          /* กว้างตามเนื้อหา */
+        min-width: 150px;     /* แต่ไม่ให้เล็กเกินไป (กันมันผอมแห้ง) */
+        max-width: 250px;     /* และไม่ให้ใหญ่เกินไป */
+        
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.15); /* เงาชัดขึ้นนิดนึงให้ตัดกับพื้นหลัง */
+        
+        display: flex;
+        flex-direction: column;
+        padding: 10px;        /* ลดขอบรอบๆ ให้กระชับ */
+        gap: 5px;             /* ลดช่องไฟระหว่างบรรทัด */
+        text-align: center;   /* จัดกลาง ดูสมดุลสุด */
+        
+        /* ซ่อนไว้ก่อน */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.25s ease-out;
+    }
+
+    /* 3. เมื่อกดเปิด */
+    .nav-menu.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    /* 4. ปรับตัวหนังสือให้สมส่วนกับกล่อง */
+    .nav-link {
+        display: block;
+        padding: 10px 15px;   /* เพิ่มพื้นที่กดให้เต็มกล่อง */
+        color: #333;
+        font-size: 0.95rem;   /* ขนาดกำลังดี */
+        font-weight: 500;
+        border-radius: 8px;
+        transition: background 0.2s;
+    }
+
+    .nav-link:hover {
+        background-color: #f7f7f7; /* สีเทาจางๆ ตอนกด */
+        color: #000;
+    }
+
+    /* 5. อนิเมชั่นปุ่ม X */
     .hamburger.active .bar:nth-child(2) { opacity: 0; }
     .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-    /* ปรับเมนูให้เลื่อนลงมาจากข้างบน */
-    .nav-menu {
-        position: fixed;
-        left: -100%; /* ซ่อนไว้ซ้ายสุดก่อน */
-        top: 70px; /* ให้เริ่มใต้ Navbar พอดี */
-        gap: 0;
-        flex-direction: column; /* เรียงแนวตั้ง */
-        background-color: #ffffff; /* พื้นหลังขาว */
-        width: 100%;
-        text-align: center;
-        transition: 0.3s; /* เลื่อนนุ่มๆ */
-        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        padding: 20px 0;
-        border-bottom: 1px solid #eee;
-    }
-
-    .nav-item {
-        margin: 16px 0;
-    }
-
-    /* ถ้ามี Class active (ถูกกด) ให้เลื่อนออกมา */
-    .nav-menu.active {
-        left: 0;
-    }
 }
