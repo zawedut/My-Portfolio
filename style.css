@@ -337,3 +337,62 @@ footer h2 { margin-bottom: 20px; }
     
     .slide { height: 250px; }
 }
+
+/* =========================
+   HAMBURGER MENU (MOBILE)
+   ========================= */
+
+/* ซ่อนปุ่ม 3 ขีดไว้ก่อน (ในจอคอมไม่ใช้) */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: #111; /* สีขีดดำ */
+    border-radius: 3px;
+}
+
+/* --- เริ่มปรับแต่งเฉพาะมือถือ (จอเล็กกว่า 768px) --- */
+@media (max-width: 768px) {
+    /* โชว์ปุ่ม 3 ขีด */
+    .hamburger {
+        display: block;
+        z-index: 1001; /* อยู่บนสุด */
+    }
+
+    /* ซ่อนปุ่ม 3 ขีดเดิม ถ้ามีการคลิก (เปลี่ยนเป็นกากบาท X) */
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* ปรับเมนูให้เลื่อนลงมาจากข้างบน */
+    .nav-menu {
+        position: fixed;
+        left: -100%; /* ซ่อนไว้ซ้ายสุดก่อน */
+        top: 70px; /* ให้เริ่มใต้ Navbar พอดี */
+        gap: 0;
+        flex-direction: column; /* เรียงแนวตั้ง */
+        background-color: #ffffff; /* พื้นหลังขาว */
+        width: 100%;
+        text-align: center;
+        transition: 0.3s; /* เลื่อนนุ่มๆ */
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        padding: 20px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-item {
+        margin: 16px 0;
+    }
+
+    /* ถ้ามี Class active (ถูกกด) ให้เลื่อนออกมา */
+    .nav-menu.active {
+        left: 0;
+    }
+}
