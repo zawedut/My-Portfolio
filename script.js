@@ -41,7 +41,7 @@ if (themeToggle) { // เช็คว่ามีปุ่มเปลี่ย�
 /* --- 3. Typewriter Effect (ทำงานเฉพาะหน้าที่มี class .typing-effect) --- */
 if (document.querySelector('.typing-effect')) {
     var typed = new Typed('.typing-effect', {
-        strings: ["Future Tech.", "AI Solutions.", "Web Apps.", "IoT Systems."],
+        strings: ["Future Tech.", "AI Solutions.", "Web Apps.", "Software."],
         typeSpeed: 100,
         backSpeed: 60,
         loop: true

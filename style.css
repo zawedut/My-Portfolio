@@ -379,3 +379,44 @@ footer p { color: var(--text-secondary); }
     .slide { height: 250px; }
     .project-header h1 { font-size: 2rem; }
 }
+
+/* =========================
+   HERO BUTTONS (แก้ปุ่มทับกัน)
+   ========================= */
+
+/* จัดระเบียบปุ่มในหน้าจอคอม */
+.hero-buttons {
+    display: flex;
+    gap: 15px;        /* เว้นระยะห่างระหว่างปุ่ม */
+    margin-top: 30px; /* เว้นห่างจากข้อความด้านบน */
+    align-items: center;
+}
+
+/* สไตล์ปุ่มแบบโปร่งใส (Outline Button) */
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--text-primary); /* มีขอบสีตามธีม */
+    color: var(--text-primary);
+    box-shadow: none; /* ไม่มีเงา */
+}
+
+.btn-outline:hover {
+    background: var(--text-primary); /* ชี้แล้วถมสี */
+    color: var(--bg-color);
+}
+
+/* --- ปรับเฉพาะมือถือ (Mobile) --- */
+@media (max-width: 768px) {
+    .hero-buttons {
+        flex-direction: column; /* บังคับเรียงแนวตั้ง */
+        width: 100%;            /* ความกว้างเต็มพื้นที่ */
+        gap: 15px;              /* เว้นห่างกัน */
+    }
+
+    .btn, .btn-outline {
+        display: block;         /* ให้ปุ่มเป็นก้อน */
+        width: 100%;            /* ขยายเต็มจอ */
+        text-align: center;     /* จัดตัวหนังสือกลาง */
+        padding: 15px 0;        /* เพิ่มพื้นที่กดให้สะใจ */
+    }
+}
